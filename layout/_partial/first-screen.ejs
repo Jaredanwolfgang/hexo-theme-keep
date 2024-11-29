@@ -5,7 +5,56 @@ final_description = final_description.split('||').map(desc => desc.trim())
 if (final_description.length > 2) { final_description.length = 2 }
 const { enable: sc_enable, links: sc_links } = theme?.social_contact || {}
 %>
-<div class="first-screen-container border-box flex-center fade-in-down-animation">
+<div id="click"  class="first-screen-container border-box flex-center fade-in-down-animation">
+    <div class="main-content">
+        <div class="map-base">
+            <div class="footsteps footsteps-1">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name">
+                    <p>Jerry Xiao</p>
+                </div>
+            </div>
+            <div class="footsteps footsteps-2">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name">
+                    <p>Harry Potter</p>
+                </div>
+            </div>
+            <div class="map-flap flap--1">
+                <div class="map-flap__front"></div>
+                <div class="map-flap__back"></div>
+            </div>
+            <div class="map-flap flap--2">
+                <div class="map-flap__front"></div>
+                <div class="map-flap__back"></div>
+            </div>
+            <div class="map-side side-1">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/8.png')"></div>
+                <div class="back"></div>
+            </div>
+            <div class="map-side side-2">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/18.png')"></div>
+                <div class="back"></div>
+            </div>
+            <div class="map-side side-3">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/7.png')"></div>
+                <div class="back"></div>
+            </div>
+            <div class="map-side side-4">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/10.png')"></div>
+            </div>
+            <div class="map-side side-5">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/6.png')"></div>
+                <div class="back"></div>
+            </div>
+            <div class="map-side side-6">
+                <div class="front" style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/11.png')"></div>
+                <div class="back"></div>
+            </div>
+        </div>
+    </div>
     <div class="first-screen-content border-box">
         <div class="top-placeholder border-box"></div>
 
@@ -48,9 +97,9 @@ const { enable: sc_enable, links: sc_links } = theme?.social_contact || {}
                                 }
                             %>
                             <div class="tooltip sc-icon-item <%= isImg ? 'tooltip-img clear' : ''%>"
-                                 data-tooltip-content="<%= __(key) %>"
-                                 <%= isImg ? 'data-tooltip-img-name='+ key +'' : '' %>
-                                 <%= isImg ? 'data-tooltip-img-url='+ link +'' : '' %>
+                                data-tooltip-content="<%= __(key) %>"
+                                <%= isImg ? 'data-tooltip-img-name='+ key +'' : '' %>
+                                <%= isImg ? 'data-tooltip-img-url='+ link +'' : '' %>
                             >
                                 <% if(key === 'email') { %>
                                     <a href="mailto:<%- link %>">
@@ -85,9 +134,9 @@ const { enable: sc_enable, links: sc_links } = theme?.social_contact || {}
                                 }
                             %>
                             <div class="tooltip border-box sc-icon-item <%= icon %> <%= custom_is_img ? 'tooltip-img clear' : ''%>"
-                                 data-tooltip-content="<%= __(icon) %>"
-                                 <%= custom_is_img ? 'data-tooltip-img-name='+ icon +'' : '' %>
-                                 <%= custom_is_img ? 'data-tooltip-img-url='+ custom_link +'' : '' %>
+                                data-tooltip-content="<%= __(icon) %>"
+                                <%= custom_is_img ? 'data-tooltip-img-name='+ icon +'' : '' %>
+                                <%= custom_is_img ? 'data-tooltip-img-url='+ custom_link +'' : '' %>
                             >
                                 <% if(!custom_is_img) { %><a target="_blank" href="<%- custom_link %>"><% } %>
                                     <%- custom_svg %>

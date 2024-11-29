@@ -10,142 +10,481 @@ else {
 $fs-bg-img-light = $temp-fs-bg-img-light ? $temp-fs-bg-img-light : '/images/bg.svg'
 $fs-bg-img-dark = $temp-fs-bg-img-dark ? $temp-fs-bg-img-dark : $fs-bg-img-light
 
+$brown = #615349
 $root = hexo-config('root')
 
-.first-screen-container {
+.first-screen-container
+  position: relative;
   width 100%
   height 100vh
   overflow hidden
-  background-image url($root + $fs-bg-img-light)
+  background-image url("/images/hufflepuff.jpg")
   background-position-x center
   background-position-y center
   background-size cover
   background-repeat-x no-repeat
   background-repeat-y no-repeat
 
-
   .dark-mode & {
-    background-image url($root + $fs-bg-img-dark)
+    background-image url("/images/harry.jpg")
   }
 
-  .first-screen-content {
-    display flex
-    flex-direction column
-    align-items center
-    justify-content space-between
-    width 80%
-    height 90%
-    padding-top calc(var(--header-height) * 0.5)
+.first-screen-content {
+  align-items center
+  display: flex;
+  flex-direction: column;
+  justify-content space-between
+  width 80%
+  height 90%
+  padding-top calc(var(--header-height) * 0.5)
 
-    +keep-tablet() {
-      padding-top calc(var(--header-height) * 0.5 * 0.9)
-    }
+  +keep-tablet() {
+    padding-top calc(var(--header-height) * 0.5 * 0.9)
+  }
 
-    +keep-mobile() {
-      padding-top calc(var(--header-height) * 0.5 * 0.8)
-    }
+  +keep-mobile() {
+    padding-top calc(var(--header-height) * 0.5 * 0.8)
+  }
 
-    .description {
-      display var(--first-screen-display)
-      color var(--first-screen-font-color-light)
-      font-weight bold
-      font-size var(--first-screen-font-size)
-      font-family var(--first-screen-font-family)
-      line-height 1.8
-      text-align center
-      transform translateY(var(--first-screen-font-offset))
-      opacity 0
+  .description {
+    display var(--first-screen-display)
+    color var(--first-screen-font-color-light)
+    text-shadow: 5px 5px 5px #F0C75E;
+    font-weight bold
+    font-size var(--first-screen-font-size)
+    font-family var(--first-screen-font-family)
+    line-height 1.8
+    text-align center
+    transform translateY(var(--first-screen-font-offset))
+    opacity 0
+    // padding: 10px 20px
+    // border-radius: 20px
+    // background-color: rgba(255, 255, 255, 0.4)  /* 半透明背景色 */
+    // display: inline-block  /* 确保它只包裹文本 */
 
-      .dark-mode & {
-        color var(--first-screen-font-color-dark)
-
-        .desc-item {
-          .desc
-          .cursor {
-            color var(--first-screen-font-color-dark)
-          }
-        }
-      }
-
+    .dark-mode & {
+      color var(--first-screen-font-color-dark)
 
       .desc-item {
-        .desc {
-          color var(--first-screen-font-color-light)
-        }
-
+        .desc
         .cursor {
-          color var(--first-screen-font-color-light)
-          animation blink-caret 0.8s step-end infinite
+          color var(--first-screen-font-color-dark)
         }
-      }
-
-
-      +keep-tablet() {
-        font-size calc(var(--first-screen-font-size) * 0.9)
       }
     }
 
 
-    .bottom-placeholder {
-      width 100%
+    .desc-item {
+      .desc {
+        color var(--first-screen-font-color-light)
+      }
 
-      .sc-icon-list {
+      .cursor {
+        color var(--first-screen-font-color-light)
+        animation blink-caret 0.8s step-end infinite
+      }
+    }
+
+
+    +keep-tablet() {
+      font-size calc(var(--first-screen-font-size) * 0.9)
+    }
+  }
+
+
+  .bottom-placeholder {
+    width 100%
+
+    .sc-icon-list {
+      display flex
+      justify-content center
+
+      .sc-icon-item {
         display flex
-        justify-content center
+        align-items center
+        margin 0 1rem
+        cursor pointer
 
-        .sc-icon-item {
-          display flex
-          align-items center
-          margin 0 1rem
-          cursor pointer
+        i {
+          color var(--first-screen-icon-color-light)
+          font-size var(--first-screen-icon-size)
+        }
 
-          i {
-            color var(--first-screen-icon-color-light)
-            font-size var(--first-screen-icon-size)
+
+        svg {
+          width var(--first-screen-icon-size)
+          height var(--first-screen-icon-size)
+
+          path {
+            fill var(--first-screen-icon-color-light)
           }
+        }
 
+
+        .dark-mode & {
+          i {
+            color var(--first-screen-icon-color-dark)
+          }
 
           svg {
-            width var(--first-screen-icon-size)
-            height var(--first-screen-icon-size)
-
             path {
-              fill var(--first-screen-icon-color-light)
+              fill var(--first-screen-icon-color-dark)
             }
           }
+        }
 
 
-          .dark-mode & {
-            i {
-              color var(--first-screen-icon-color-dark)
-            }
-
-            svg {
-              path {
-                fill var(--first-screen-icon-color-dark)
-              }
-            }
+        +keep-tablet() {
+          i {
+            font-size calc(var(--first-screen-icon-size) * 0.9)
           }
 
-
-          +keep-tablet() {
-            i {
-              font-size calc(var(--first-screen-icon-size) * 0.9)
-            }
-
-            svg {
-              width calc(var(--first-screen-icon-size) * 0.9)
-              height calc(var(--first-screen-icon-size) * 0.9)
-            }
+          svg {
+            width calc(var(--first-screen-icon-size) * 0.9)
+            height calc(var(--first-screen-icon-size) * 0.9)
           }
+        }
 
 
-          a {
-            display flex !important
-            align-items center !important
-          }
+        a {
+          display flex !important
+          align-items center !important
         }
       }
     }
   }
 }
+
+
+.main-content {
+	text-align: center;
+	margin: 8em auto;
+	animation: float-oval 3s ease-in-out infinite;
+  position: absolute;
+  z-index: -1;
+}
+
+.map-base {
+	width: 306px;
+	height: 600px;
+	margin: auto;
+	background: url("/images/map/9.png") center center;
+	position: relative;
+	display: inline-block;
+}
+
+.map-flap {
+	transform-style: preserve-3d;
+	position: absolute;
+	width: 100%;
+	height: 25%;
+	margin: auto;
+	left: 0;
+	right: 0;
+	transition: 0.5s ease;
+	top: 25%;
+	&__front,
+	&__back {
+		backface-visibility: hidden;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+	&__back {
+		transform: scale(-1) rotateY(180deg);
+	}
+	&.flap--1 {
+		box-shadow: 0 -1px 6px rgba($brown, 0.5);
+		.map-flap__front {
+			background: url("/images/map/mini-1.png") center left /
+				cover;
+		}
+		.map-flap__back {
+			background: url("/images/map/mini-3.png") -3px 0/ cover;
+		}
+	}
+	&.flap--2 {
+		box-shadow: 0 1px 6px rgba($brown, 0.5);
+		top: 50%;
+		.map-flap__front {
+			background: url("/images/map/mini-2.png") center left /
+				cover;
+		}
+		.map-flap__back {
+			background: url("/images/map/mini-4.png") -3px 0/ cover;
+		}
+	}
+}
+
+.map-side {
+	height: 600px;
+	width: 152px;
+	position: absolute;
+	transform-style: preserve-3d;
+	transition: 0.3s ease;
+	.front,
+	.back {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-size: cover;
+		background-image: var(--image);
+		backface-visibility: hidden;
+	}
+	.back {
+		background-image: url(/images/map/back.png);
+	}
+}
+
+.map-side {
+	top: 0;
+	&.side-1 {
+		left: 0;
+		margin-left: 1.5px;
+	}
+	&.side-2 {
+		left: 50%;
+		margin-left: -2px;
+	}
+	&.side-3 {
+		left: 0;
+		margin-left: 3px;
+		.back {
+			transform: rotateY(180deg);
+		}
+	}
+	&.side-4 {
+		left: 50%;
+		margin-left: -1px;
+		.back {
+			transform: rotateY(180deg);
+		}
+	}
+	&.side-5 {
+		left: 0;
+		.back {
+			background-image: url(/images/map/1.png);
+		}
+	}
+	&.side-6 {
+		left: 50%;
+		.front {
+			background-size: 99.5%;
+		}
+		.back {
+			background-image: url(/images/map/17.png);
+		}
+	}
+}
+
+.scroll-name {
+	position: absolute;
+	bottom: 105px;
+	left: -60px;
+	width: 150px;
+  height: 30px;
+	font: 15px Satisfy, cursive;
+	text-align:center;
+	background: url('/images/map/scroll.svg') center center / cover;
+	z-index: 10;
+	color: $brown;
+	cursor: default;
+	opacity: 0;
+	p {
+		display: inline-block;
+		margin: 4px 0 0 15px;
+	}
+}
+
+.footstep {
+	position: absolute;
+	background: $brown;
+	width: 6px;
+	height: 12px;
+	border-radius: 80% 80% 70% 70%/130% 130% 25% 25%;
+	z-index: 10;
+	opacity: 0;
+	&:before {
+		content: "";
+		position: absolute;
+		border-radius: 6px;
+		width: 5px;
+		height: 5px;
+		top: 110%;
+		left: 0px;
+		background: $brown;
+		border-radius: 0 0 100% 100%;
+	}
+	&.left {
+		transform: rotate(5deg);
+	}
+	&.right {
+		transform: rotate(-3deg) translateY(15px) translateX(10px);
+	}
+}
+
+.footsteps-1 {
+	.footstep.left {
+		bottom: 150px;
+		left: 18px;
+		transform: rotate(35deg);
+	}
+	.footstep.right {
+		bottom: 150px;
+		left: 28px;
+		transform: rotate(30deg);
+	}
+}
+
+.footsteps-2 {
+	.footstep.left {
+		bottom: 285px;
+		left: 280px;
+		transform: rotate(-90deg);
+	}
+	.footstep.right {
+		bottom: 275px;
+		left: 285px;
+		transform: rotate(-85deg);
+	}
+	.scroll-name {
+		bottom: 300px;
+		left: 220px;
+	}
+}
+
+.map-base.active {
+	.flap--1 {
+		transform: rotateX(180deg);
+		transform-origin: top center;
+		transition: 0.6s transform 1.5s;
+	}
+	.flap--2 {
+		transform: rotateX(180deg);
+		transform-origin: bottom center;
+		transition: 0.6s transform 1.8s;
+	}
+	.side-1 {
+		transform-origin: center left;
+		transform: rotateY(180deg) skewY(2deg);
+		transition: 0.5s all ease-in-out 0.6s;
+		.front {
+			transform: rotateY(180deg);
+		}
+	}
+	.side-2 {
+		transform: rotateY(180deg) skewY(-2deg);
+		transform-origin: center right;
+		transition: 0.5s all ease-in-out 0.6s;
+		.front {
+			transform: rotateY(180deg);
+		}
+	}
+	.side-3 {
+		left: -50%;
+		transform: skewY(2deg) translateX(-100%);
+		top: 8px;
+		transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s;
+	}
+	.side-4 {
+		left: 100%;
+		transform: skewY(-2deg) translateX(100%);
+		top: 8px;
+		margin-left: -7px;
+		transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s,
+			0.5s margin ease 0.8s;
+	}
+	.side-5 {
+		left: -100%;
+		transform-origin: center left;
+		transform: rotateY(180deg);
+		transition: 0.5s transform, 0.7s left 0.8s, 0.2s margin 0.8s;
+		top: 0px;
+		margin-left: 4px;
+		.front {
+			transform: rotateY(180deg);
+			transition: 0.1s transform;
+		}
+	}
+	.side-6 {
+		left: 150%;
+		transform: rotateY(180deg);
+		transform-origin: center right;
+		margin-left: -8px;
+		transition: 0.5s transform 0.3s, 0.7s left 0.8s, 0.5s top 0.8s,
+			0.5s margin 0.8s;
+		.front {
+			transform: rotateY(180deg);
+			transition: 0.1s transform;
+		}
+	}
+	.footstep, .scroll-name {
+		opacity: 1;
+		transition: .5s opacity 2.5s;
+	}
+	.footsteps-1 {
+		.footstep {		
+			animation: 15s footsteps-1 ease 3s forwards;
+		}
+		.scroll-name {
+			animation: 15s scroll-1 ease 3s forwards;
+		}
+	}
+	.footsteps-2 {
+		.footstep {
+			animation: 15s footsteps-2 ease 3.2s forwards;
+		}
+		.scroll-name {
+			animation: 15s scroll-2 ease 3.2s forwards;
+		}
+	}
+}
+
+
+@keyframes footsteps-1 {
+	10% { transform: translate(8px, -15px) rotate(30deg) }
+	20% { transform: translate(30px, -45px) rotate(30deg) }
+	30% { transform: translate(40px, -75px) rotate(20deg) }
+	40% { transform: translate(45px, -100px) rotate(10deg) }
+	50% { transform: translate(50px, -125px) rotate(10deg) }
+	60% { transform: translate(50px, -135px) rotate(10deg) }
+	100% { transform: translate(50px, -135px) rotate(20deg) }
+}
+
+@keyframes footsteps-2 {
+	0% { }
+	80% { transform: translate(-170px, -25px) rotate(-90deg) }
+	100% { transform: translate(-180px, -25px) rotate(-90deg) }
+}
+
+@keyframes scroll-1 {
+	10% { transform: translate(8px, -15px) }
+	20% { transform: translate(30px, -45px) }
+	30% { transform: translate(40px, -75px) }
+	40% { transform: translate(45px, -100px) }
+	50% { transform: translate(50px, -125px) }
+	60% { transform: translate(50px, -135px) }
+	100% { transform: translate(50px, -135px) }
+}
+
+@keyframes scroll-2 {
+	0% { }
+	80% { transform: translate(-170px, -25px) }
+	100% { transform: translate(-180px, -25px) }
+}
+
+@keyframes float-oval {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);  /* Right top */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
