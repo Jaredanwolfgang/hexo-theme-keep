@@ -13,148 +13,144 @@ $fs-bg-img-dark = $temp-fs-bg-img-dark ? $temp-fs-bg-img-dark : $fs-bg-img-light
 $brown = #615349
 $root = hexo-config('root')
 
-.first-screen-container
-  position: relative;
+.first-screen-container {
   width 100%
   height 100vh
   overflow hidden
-  background-image url("/images/hufflepuff.jpg")
+  background-image url($root + $fs-bg-img-light)
   background-position-x center
   background-position-y center
   background-size cover
   background-repeat-x no-repeat
   background-repeat-y no-repeat
 
+
   .dark-mode & {
-    background-image url("/images/harry.jpg")
+    background-image url($root + $fs-bg-img-dark)
   }
 
-.first-screen-content {
-  align-items center
-  display: flex;
-  flex-direction: column;
-  justify-content space-between
-  width 80%
-  height 90%
-  padding-top calc(var(--header-height) * 0.5)
-
-  +keep-tablet() {
-    padding-top calc(var(--header-height) * 0.5 * 0.9)
-  }
-
-  +keep-mobile() {
-    padding-top calc(var(--header-height) * 0.5 * 0.8)
-  }
-
-  .description {
-    display var(--first-screen-display)
-    color var(--first-screen-font-color-light)
-    text-shadow: 5px 5px 5px #F0C75E;
-    font-weight bold
-    font-size var(--first-screen-font-size)
-    font-family var(--first-screen-font-family)
-    line-height 1.8
-    text-align center
-    transform translateY(var(--first-screen-font-offset))
-    opacity 0
-    // padding: 10px 20px
-    // border-radius: 20px
-    // background-color: rgba(255, 255, 255, 0.4)  /* 半透明背景色 */
-    // display: inline-block  /* 确保它只包裹文本 */
-
-    .dark-mode & {
-      color var(--first-screen-font-color-dark)
-
-      .desc-item {
-        .desc
-        .cursor {
-          color var(--first-screen-font-color-dark)
-        }
-      }
-    }
-
-
-    .desc-item {
-      .desc {
-        color var(--first-screen-font-color-light)
-      }
-
-      .cursor {
-        color var(--first-screen-font-color-light)
-        animation blink-caret 0.8s step-end infinite
-      }
-    }
-
+  .first-screen-content {
+    display flex
+    flex-direction column
+    align-items center
+    justify-content space-between
+    width 80%
+    height 90%
+    padding-top calc(var(--header-height) * 0.5)
 
     +keep-tablet() {
-      font-size calc(var(--first-screen-font-size) * 0.9)
+      padding-top calc(var(--header-height) * 0.5 * 0.9)
     }
-  }
+
+    +keep-mobile() {
+      padding-top calc(var(--header-height) * 0.5 * 0.8)
+    }
+
+    .description {
+      display var(--first-screen-display)
+      color var(--first-screen-font-color-light)
+	  text-shadow: 5px 5px 5px #F0C75E;
+      font-weight bold
+      font-size var(--first-screen-font-size)
+      font-family var(--first-screen-font-family)
+      line-height 1.8
+      text-align center
+      transform translateY(var(--first-screen-font-offset))
+      opacity 0
+
+      .dark-mode & {
+        color var(--first-screen-font-color-dark)
+
+        .desc-item {
+          .desc
+          .cursor {
+            color var(--first-screen-font-color-dark)
+          }
+        }
+      }
 
 
-  .bottom-placeholder {
-    width 100%
+      .desc-item {
+        .desc {
+          color var(--first-screen-font-color-light)
+        }
 
-    .sc-icon-list {
-      display flex
-      justify-content center
+        .cursor {
+          color var(--first-screen-font-color-light)
+          animation blink-caret 0.8s step-end infinite
+        }
+      }
 
-      .sc-icon-item {
+
+      +keep-tablet() {
+        font-size calc(var(--first-screen-font-size) * 0.9)
+      }
+    }
+
+
+    .bottom-placeholder {
+      width 100%
+
+      .sc-icon-list {
         display flex
-        align-items center
-        margin 0 1rem
-        cursor pointer
+        justify-content center
 
-        i {
-          color var(--first-screen-icon-color-light)
-          font-size var(--first-screen-icon-size)
-        }
+        .sc-icon-item {
+          display flex
+          align-items center
+          margin 0 1rem
+          cursor pointer
 
-
-        svg {
-          width var(--first-screen-icon-size)
-          height var(--first-screen-icon-size)
-
-          path {
-            fill var(--first-screen-icon-color-light)
-          }
-        }
-
-
-        .dark-mode & {
           i {
-            color var(--first-screen-icon-color-dark)
+            color var(--first-screen-icon-color-light)
+            font-size var(--first-screen-icon-size)
           }
+
 
           svg {
+            width var(--first-screen-icon-size)
+            height var(--first-screen-icon-size)
+
             path {
-              fill var(--first-screen-icon-color-dark)
+              fill var(--first-screen-icon-color-light)
             }
           }
-        }
 
 
-        +keep-tablet() {
-          i {
-            font-size calc(var(--first-screen-icon-size) * 0.9)
+          .dark-mode & {
+            i {
+              color var(--first-screen-icon-color-dark)
+            }
+
+            svg {
+              path {
+                fill var(--first-screen-icon-color-dark)
+              }
+            }
           }
 
-          svg {
-            width calc(var(--first-screen-icon-size) * 0.9)
-            height calc(var(--first-screen-icon-size) * 0.9)
+
+          +keep-tablet() {
+            i {
+              font-size calc(var(--first-screen-icon-size) * 0.9)
+            }
+
+            svg {
+              width calc(var(--first-screen-icon-size) * 0.9)
+              height calc(var(--first-screen-icon-size) * 0.9)
+            }
           }
-        }
 
 
-        a {
-          display flex !important
-          align-items center !important
+          a {
+            display flex !important
+            align-items center !important
+          }
         }
       }
     }
   }
 }
-
 
 .main-content {
 	text-align: center;
